@@ -1,0 +1,146 @@
+:root{
+	--gray: rgb(205, 205, 205);
+	--shadow: rgba(0, 0, 0, 0.17);
+}
+
+body{
+	font-family: "RodinNTLG Pro";
+}
+
+h2, h3{
+	font-family: "NewRodin Pro";
+}
+
+.title{
+	width: fit-content;
+	margin: 0px auto 10px auto;
+}
+
+.desc{
+	width: fit-content;
+	margin: 0px auto 30px auto;
+}
+
+.searchTitle{
+	width: 350px;
+	margin: 0px auto 10px auto;
+	padding: 5px 0px 0px 0px;
+	border-top: solid 1.5px var(--gray);
+	text-align: center;
+}
+
+.inpCont{
+	width: fit-content;
+	margin: 0px auto 10px auto;
+}
+
+.searchInput{
+	margin: 0px auto 10px auto;
+}
+
+.dataCont{
+	width: 300px;
+	max-width: min(65vw, 433.33px);
+	margin: 0px auto 10px auto;
+	padding: min(2vw, 15px);
+	display: block;
+	border-radius: 25px;
+	background-color: white;
+	box-shadow: 0px 5px 30px 5px var(--shadow);
+}
+
+.dataCont > div{
+	
+}
+
+.dataCont > div > h3{
+	
+}
+
+.dataCont > div > h4{
+	
+}
+
+.dataCont > div > ul{
+	
+}
+
+.dataCont > div > li{
+	
+}
+
+.dataCont > div > img{
+	
+}
+
+.dataCont > div > h3 > img{
+	
+}
+
+.dataCont > div > div{
+	
+}
+
+.dataCont > div > div > h4{
+	
+}
+
+.dataCont > div > div > h5{
+	
+}
+
+.dataCont > div > div > ol{
+	
+}
+
+.dataCont > div > div > ol > li{
+	
+}
+
+@font-face{
+    font-family: "NewRodin Pro";
+    src:
+        local("FOT-NewRodin Pro M"),
+        url("/-stuff/-fonts/FOT-NewRodin Pro M.otf");
+    font-weight: 200;
+}
+
+@font-face{
+    font-family: "NewRodin Pro";
+    src:
+        local("FOT-NewRodin Pro B"),
+        url("/-stuff/-fonts/FOT-NewRodin Pro B.otf");
+    font-weight: 500;
+}
+
+@font-face{
+    font-family: "NewRodin Pro";
+    src:
+        local("FOT-NewRodin Pro EB"),
+        url("/-stuff/-fonts/FOT-NewRodin Pro EB.otf");
+    font-weight: 900;
+}
+
+@font-face{
+    font-family: "RodinNTLG Pro";
+    src:
+        local("FOT-RodinNTLG Pro M"),
+        url("/-stuff/-fonts/FOT-RodinNTLG Pro M.otf");
+    font-weight: 200;
+}
+
+@font-face{
+    font-family: "RodinNTLG Pro";
+    src:
+        local("FOT-RodinNTLG Pro B"),
+        url("/-stuff/-fonts/FOT-RodinNTLG Pro B.otf");
+    font-weight: 500;
+}
+
+@font-face{
+    font-family: "RodinNTLG Pro";
+    src:
+        local("FOT-RodinNTLG Pro EB"),
+        url("/-stuff/-fonts/FOT-RodinNTLG Pro EB.otf");
+    font-weight: 900;
+}
