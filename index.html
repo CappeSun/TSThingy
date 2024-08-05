@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>AmiiboData</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
@@ -16,10 +16,10 @@
 		<p class="searchInput">Series: <input id="searchSeri" type="text"></p>
 	</div>
 	<div class="dataCont" id="dataCont">
-		<div>
+		<div class="dataDivOpen" id="dataDiv">
 			<h3>Dummy name</h3>
-			<h4>Dummy character</h4>
 			<h4>Dummy gameSeries</h4>
+			<h4>Dummy character</h4>
 			<h4>Dummy amiiboSeries</h4>
 			<h4>Dummy head</h4>
 			<h4>Dummy tail</h4>
@@ -31,11 +31,11 @@
 				<li>AU: Dummy release</li>
 			</ul>
 			<img src="Dummy image">
-			<h3>3DS Usage<img id="arrow3DS" src="arrow.svg"></h3>
-			<div id="usage3DS">
+			<div id="usage3DS" class="usageOpen">
+				<h3>3DS Usage<img id="arrow3DS" src="arrow.svg"></h3>
 				<h4>Dummy usage name</h4>
 				<h4>Dummy usage usage</h4>
-				<h5>Dummy usage write</h5>
+				<h4>Dummy usage write</h4>
 				<ol>
 					<li>Dummy usage gameID</li>
 					<li>Dummy usage gameID</li>
@@ -43,11 +43,11 @@
 					<li>Dummy usage gameID</li>
 				</ol>
 			</div>
-			<h3>WiiU Usage<img id="arrowWiiU" src="arrow.svg"></h3>
 			<div id="usageWiiU">
+				<h3>WiiU Usage<img id="arrowWiiU" src="arrow.svg"></h3>
 				<h4>Dummy usage name</h4>
 				<h4>Dummy usage usage</h4>
-				<h5>Dummy usage write</h5>
+				<h4>Dummy usage write</h4>
 				<ol>
 					<li>Dummy usage gameID</li>
 					<li>Dummy usage gameID</li>
@@ -55,11 +55,11 @@
 					<li>Dummy usage gameID</li>
 				</ol>
 			</div>
-			<h3>Switch Usage<img id="arrowSwitch" src="arrow.svg"></h3>
 			<div id="usageSwitch">
+				<h3>Switch Usage<img id="arrowSwitch" src="arrow.svg"></h3>
 				<h4>Dummy usage name</h4>
 				<h4>Dummy usage usage</h4>
-				<h5>Dummy usage write</h5>
+				<h4>Dummy usage write</h4>
 				<ol>
 					<li>Dummy usage gameID</li>
 					<li>Dummy usage gameID</li>
@@ -71,4 +71,27 @@
 	</div>
 </body>
 <script type="text/javascript" src="index.js"></script>
+<script type="text/javascript">
+	dataDiv.addEventListener('click', () =>{
+		dataDiv.classList.contains('dataDivOpen') ? dataDiv.classList.remove('dataDivOpen') : dataDiv.classList.add('dataDivOpen');
+	})
+
+	usage3DS.addEventListener('click', (e) =>{
+		usage3DS.classList.contains('usageOpen') ? usage3DS.classList.remove('usageOpen') : usage3DS.classList.add('usageOpen');
+		e.cancelBubble = true;
+		e.stopPropagation();
+	})
+
+	usageWiiU.addEventListener('click', (e) =>{
+		usageWiiU.classList.contains('usageOpen') ? usageWiiU.classList.remove('usageOpen') : usageWiiU.classList.add('usageOpen');
+		e.cancelBubble = true;
+		e.stopPropagation();
+	})
+
+	usageSwitch.addEventListener('click', (e) =>{
+		usageSwitch.classList.contains('usageOpen') ? usageSwitch.classList.remove('usageOpen') : usageSwitch.classList.add('usageOpen');
+		e.cancelBubble = true;
+		e.stopPropagation();
+	})
+</script>
 </html>
