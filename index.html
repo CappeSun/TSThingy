@@ -17,7 +17,7 @@
 		<button class="searchBtn" id="searchBtn">Go!</button>
 	</div>
 	<div class="dataCont" id="dataCont">
-		<div class="dataDivOpen" id="dataDiv">
+		<div>
 			<h3>Dummy name</h3>
 			<h4>Dummy gameSeries</h4>
 			<h4>Dummy character</h4>
@@ -32,8 +32,8 @@
 				<li>AU: Dummy release</li>
 			</ul>
 			<img src="Dummy image">
-			<div id="usage3DS" class="usageOpen">
-				<h3>3DS Usage<img id="arrow3DS" src="arrow.svg"></h3>
+			<div>
+				<h3>3DS Usage<img src="arrow.svg"></h3>
 				<h4>Dummy usage name</h4>
 				<h4>Dummy usage usage</h4>
 				<h4>Dummy usage write</h4>
@@ -44,8 +44,8 @@
 					<li>Dummy usage gameID</li>
 				</ol>
 			</div>
-			<div id="usageWiiU">
-				<h3>WiiU Usage<img id="arrowWiiU" src="arrow.svg"></h3>
+			<div>
+				<h3>WiiU Usage<img src="arrow.svg"></h3>
 				<h4>Dummy usage name</h4>
 				<h4>Dummy usage usage</h4>
 				<h4>Dummy usage write</h4>
@@ -56,8 +56,8 @@
 					<li>Dummy usage gameID</li>
 				</ol>
 			</div>
-			<div id="usageSwitch">
-				<h3>Switch Usage<img id="arrowSwitch" src="arrow.svg"></h3>
+			<div>
+				<h3>Switch Usage<img src="arrow.svg"></h3>
 				<h4>Dummy usage name</h4>
 				<h4>Dummy usage usage</h4>
 				<h4>Dummy usage write</h4>
@@ -72,27 +72,4 @@
 	</div>
 </body>
 <script type="text/javascript" src="index.js"></script>
-<script type="text/javascript">
-	dataDiv.addEventListener('click', () =>{
-		dataDiv.classList.contains('dataDivOpen') ? dataDiv.classList.remove('dataDivOpen') : dataDiv.classList.add('dataDivOpen');
-	})
-
-	usage3DS.addEventListener('click', (e) =>{
-		usage3DS.classList.contains('usageOpen') ? usage3DS.classList.remove('usageOpen') : usage3DS.classList.add('usageOpen');
-		e.cancelBubble = true;
-		e.stopPropagation();
-	})
-
-	usageWiiU.addEventListener('click', (e) =>{
-		usageWiiU.classList.contains('usageOpen') ? usageWiiU.classList.remove('usageOpen') : usageWiiU.classList.add('usageOpen');
-		e.cancelBubble = true;
-		e.stopPropagation();
-	})
-
-	usageSwitch.addEventListener('click', (e) =>{
-		usageSwitch.classList.contains('usageOpen') ? usageSwitch.classList.remove('usageOpen') : usageSwitch.classList.add('usageOpen');
-		e.cancelBubble = true;
-		e.stopPropagation();
-	})
-</script>
 </html>
