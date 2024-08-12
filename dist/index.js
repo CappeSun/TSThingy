@@ -45,12 +45,12 @@ function createData(data, eType, eName) {
             });
             break;
         case 'img':
-            e.src = data;
+            e.src = data ? data : 'noimage.jpg';
             break;
         case 'div':
             if (!data[0]) {
                 let h3 = document.createElement('h3');
-                h3.textContent = 'No usage found';
+                h3.textContent = `${eNameTrans[eName]}: No usage found`;
                 e.appendChild(h3);
             }
             else {

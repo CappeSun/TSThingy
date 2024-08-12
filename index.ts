@@ -57,12 +57,12 @@ function createData<DataT extends ValueOf<Entry>>(data: DataT, eType: string, eN
             });
             break;
         case 'img':
-            (e as HTMLImageElement).src = data as string;
+            (e as HTMLImageElement).src = data ? data as string : 'noimage.jpg';
             break;
         case 'div':
             if (!(data as GameUsage[])[0]){
                 let h3 = document.createElement('h3');
-                h3.textContent = 'No usage found';
+                h3.textContent = `${eNameTrans[eName as keyof eNameTrans]}: No usage found`;
                 e.appendChild(h3);
             }else{
                 let conName = document.createElement('h3');
