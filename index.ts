@@ -1,72 +1,18 @@
 import { Entry, GameUsage, APIData, eNameTrans, ValueOf, Recipe } from './types.js';
 
 let dataCont = document.getElementById('dataCont') as HTMLDivElement;
+let searchName = document.getElementById('searchName') as HTMLInputElement;
+let searchChar = document.getElementById('searchChar') as HTMLInputElement;
+let searchSeri = document.getElementById('searchSeri') as HTMLInputElement;
+let searchBtn = document.getElementById('searchBtn') as HTMLButtonElement;
 
-let testEntry: Entry = {
-    amiiboSeries: "SSB",
-    character: "Z",
-    gameSeries: "L",
-    games3DS: [
-        {
-            amiiboUsage: [
-                {
-                    Usage: "U",
-                    write: false
-                }
-            ],
-            gameID: [
-                "0001",
-                "0002"
-            ],
-            gameName: "Y"
-        }
-    ],
-    gamesWiiU: [
-        {
-            amiiboUsage: [
-                {
-                    Usage: "U",
-                    write: false
-                }
-            ],
-            gameID: [
-                "0001",
-                "0002"
-            ],
-            gameName: "Y"
-        }
-    ],
-    gamesSwitch: [
-        {
-            amiiboUsage: [
-                {
-                    Usage: "U",
-                    write: false
-                }
-            ],
-            gameID: [
-                "0001",
-                "0002"
-            ],
-            gameName: "Y"
-        }
-    ],
-    head: "0000",
-    image: "http",
-    name: "Z",
-    release: {
-        jp: "2000",
-        eu: "2000",
-        na: "2000",
-        au: "2000"
-    },
-    tail: "0000",
-    type: "F"
-}
+async function fetchAndList(){
+    dataCont.textContent = 'Searching...';
 
-async function fetchAndScetch(){
-    let fetchData = await fetch('https://www.amiiboapi.com/api/amiibo/?character=zelda&showusage');
+    let fetchData = await fetch(`https://www.amiiboapi.com/api/amiibo/?name=${searchName.value}&character=${searchChar.value}&gameseries=${searchSeri.value}&showusage`);
     let JSONData: APIData = await fetchData.json();
+
+    dataCont.textContent = '';
 
     if (JSONData['amiibo'][0]){
         JSONData['amiibo'].forEach((entry) =>{
@@ -106,12 +52,12 @@ function createData<DataT extends ValueOf<Entry>>(data: DataT, eType: string, eN
         case 'ul':
             ['jp', 'eu', 'na', 'au'].forEach((rel) =>{
                 let li = document.createElement('li');
-                li.textContent = `${rel.toUpperCase()}: ${data[rel as keyof DataT]}`;
+                li.textContent = `${rel.toUpperCase()}: ${data[rel as keyof DataT] ? data[rel as keyof DataT] : 'Not released'}`;
                 e.appendChild(li);
             });
             break;
         case 'img':
-            //(e as HTMLImageElement).src = data;
+            (e as HTMLImageElement).src = data as string;
             break;
         case 'div':
             if (!(data as GameUsage[])[0]){
@@ -164,4 +110,11 @@ function createData<DataT extends ValueOf<Entry>>(data: DataT, eType: string, eN
     return e;
 }
 
-fetchAndScetch();
+searchBtn.addEventListener('click', () =>{
+    fetchAndList();
+});
+
+document.addEventListener('keypress', (e) =>{
+	if (e.key === 'Enter')
+        fetchAndList();
+});

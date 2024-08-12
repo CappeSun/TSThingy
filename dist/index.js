@@ -1,68 +1,13 @@
 let dataCont = document.getElementById('dataCont');
-let testEntry = {
-    amiiboSeries: "SSB",
-    character: "Z",
-    gameSeries: "L",
-    games3DS: [
-        {
-            amiiboUsage: [
-                {
-                    Usage: "U",
-                    write: false
-                }
-            ],
-            gameID: [
-                "0001",
-                "0002"
-            ],
-            gameName: "Y"
-        }
-    ],
-    gamesWiiU: [
-        {
-            amiiboUsage: [
-                {
-                    Usage: "U",
-                    write: false
-                }
-            ],
-            gameID: [
-                "0001",
-                "0002"
-            ],
-            gameName: "Y"
-        }
-    ],
-    gamesSwitch: [
-        {
-            amiiboUsage: [
-                {
-                    Usage: "U",
-                    write: false
-                }
-            ],
-            gameID: [
-                "0001",
-                "0002"
-            ],
-            gameName: "Y"
-        }
-    ],
-    head: "0000",
-    image: "http",
-    name: "Z",
-    release: {
-        jp: "2000",
-        eu: "2000",
-        na: "2000",
-        au: "2000"
-    },
-    tail: "0000",
-    type: "F"
-};
-async function fetchAndScetch() {
-    let fetchData = await fetch('https://www.amiiboapi.com/api/amiibo/?character=zelda&showusage');
+let searchName = document.getElementById('searchName');
+let searchChar = document.getElementById('searchChar');
+let searchSeri = document.getElementById('searchSeri');
+let searchBtn = document.getElementById('searchBtn');
+async function fetchAndList() {
+    dataCont.textContent = 'Searching...';
+    let fetchData = await fetch(`https://www.amiiboapi.com/api/amiibo/?name=${searchName.value}&character=${searchChar.value}&gameseries=${searchSeri.value}&showusage`);
     let JSONData = await fetchData.json();
+    dataCont.textContent = '';
     if (JSONData['amiibo'][0]) {
         JSONData['amiibo'].forEach((entry) => {
             dataCont.appendChild(createListEntry(entry));
@@ -95,12 +40,12 @@ function createData(data, eType, eName) {
         case 'ul':
             ['jp', 'eu', 'na', 'au'].forEach((rel) => {
                 let li = document.createElement('li');
-                li.textContent = `${rel.toUpperCase()}: ${data[rel]}`;
+                li.textContent = `${rel.toUpperCase()}: ${data[rel] ? data[rel] : 'Not released'}`;
                 e.appendChild(li);
             });
             break;
         case 'img':
-            //(e as HTMLImageElement).src = data;
+            e.src = data;
             break;
         case 'div':
             if (!data[0]) {
@@ -149,4 +94,10 @@ function createData(data, eType, eName) {
     }
     return e;
 }
-fetchAndScetch();
+searchBtn.addEventListener('click', () => {
+    fetchAndList();
+});
+document.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter')
+        fetchAndList();
+});

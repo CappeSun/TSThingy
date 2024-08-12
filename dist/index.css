@@ -130,7 +130,9 @@ h4, li, button{
 }
 
 .dataCont > div > img{
-	width: 100%;
+	width: 95%;
+	margin: 20px auto 15px auto;
+	display: block;
 }
 
 .dataCont > div > div{
