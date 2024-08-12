@@ -80,7 +80,7 @@ function createData<DataT extends ValueOf<Entry>>(data: DataT, eType: string, eN
 
                     game.amiiboUsage.forEach((usage) =>{
                         let h4 = document.createElement('h4');
-                        h4.textContent = `${usage.Usage}\n(${usage.write ? 'Writes data to amiibo' : 'Does not write data to amiibo'})`;
+                        h4.textContent = `${usage.Usage} (${usage.write ? 'Writes data to amiibo' : 'Does not write data to amiibo'})`;
                         usageCont.appendChild(h4);
                     });
 

@@ -67,7 +67,7 @@ function createData(data, eType, eName) {
                     usageCont.appendChild(name);
                     game.amiiboUsage.forEach((usage) => {
                         let h4 = document.createElement('h4');
-                        h4.textContent = `${usage.Usage}\n(${usage.write ? 'Writes data to amiibo' : 'Does not write data to amiibo'})`;
+                        h4.textContent = `${usage.Usage} (${usage.write ? 'Writes data to amiibo' : 'Does not write data to amiibo'})`;
                         usageCont.appendChild(h4);
                     });
                     let idTitle = document.createElement('h4');
