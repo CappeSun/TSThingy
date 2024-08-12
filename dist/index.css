@@ -82,12 +82,13 @@ h4, li, button{
 }
 
 .dataCont{
-	margin: 30px 0px 50px 0px;
+	width: fit-content;
+	margin: 30px auto 50px auto;
 }
 
 .dataCont > div{
 	height: 54px;
-	width: 300px;
+	width: 400px;
 	margin: 0px auto 10px auto;
 	padding: 20px;
 	display: block;
@@ -158,28 +159,36 @@ h4, li, button{
 	transform: rotate(90deg);
 }
 
-.dataCont > div > div > h4{
+.dataCont > div > div > div{
+	margin: 0px 0px 20px 0px;
+	border-bottom: solid 1.5px var(--gray);
+}
+
+.dataCont > div > div > :last-child{
+	border-bottom: none;
+}
+
+.dataCont > div > div > div > h4{
 	margin: 0px 0px 5px 0px;
-	opacity: 0;
+	font-weight: 100;
+	line-height: 20px;
 }
 
-.dataCont > div > div > h4:first-of-type{
-	opacity: 1;
+.dataCont > div > div > div > h4:first-of-type{
+	margin: 0px 0px 10px 0px;
+	font-weight: 500;
 }
 
-.usageOpen > h4{
-	opacity: 1 !important;
+.dataCont > div > div > div > h4:last-of-type{
+	margin: 20px 0px 5px 0px;
+	font-weight: 500;
 }
 
-.dataCont > div > div > h5{
-	
-}
-
-.dataCont > div > div > ol{
+.dataCont > div > div > div > ol{
 	padding-left: 35px;
 }
 
-.dataCont > div > div > ol > li{
+.dataCont > div > div > div > ol > li{
 	margin-bottom: 5px;
 }
 
